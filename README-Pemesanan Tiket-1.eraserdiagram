@@ -1,0 +1,33 @@
+entity-relationship-diagram
+
+users [icon: user, color: yellow]{
+  user_id string pk
+  name string
+  email string
+  password string
+  role string
+}
+
+tickets [icon: ticket, color: blue]{
+  ticket_id string pk
+  event_name string
+  description string
+  price float
+  event_date date
+  availability int
+}
+
+transactions [icon: shopping-cart, color: green]{
+  transactions_id string pk
+  user_id string
+  ticket_id string
+  quantity int
+  total_price float
+  transaction_date timestamp
+}
+// End of tables
+title Pemesanan Tiket
+
+transactions.user_id > users.user_id
+transactions.ticket_id > tickets.ticket_id
+
