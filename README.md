@@ -11,14 +11,12 @@
 ## **Deskripsi**
 1. Melihat Daftar Tiket yang Tersedia:
     - User dapat melihat daftar tiket yang tersedia untuk berbagai acara, dengan informasi seperti harga, tanggal, dan tempat acara.
-2. Memesan atau Refund Tiket:
+2. Memesan Tiket:
     - User memilih tiket yang ingin dibeli dan melakukan pemesanan, yang kemudian disimpan dalam tabel transaksi.
+3. Refund Tiket:
     - User memilih tiket yang ingin direfund dan data pemesanan di tabel transaksi dihapus, yang kemudian stok tiket ditambahkan kembali ke tabel tiket.
-3. Melihat Riwayat Pembelian:
+4. Melihat Riwayat Pembelian:
     - User dapat melihat riwayat pembelian tiket mereka, dengan rincian acara dan tanggal pembelian.
-    - Admin dapat melihat riwayat pembelian tiket seluruhnya.
-4. Mengelola Tiket
-    - Admin dapat menambah, mengubah, atau menghapus tiket dari daftar tiket yang tersedia.
 ---
 
 # **Entity Relationship Diagram**
