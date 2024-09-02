@@ -52,6 +52,6 @@
 **Penjelasan Relasi:**
 
 - **Users**: Tabel ini menyimpan data user. Dengan relasi one to many terhadap tabel **Transactions.**
-- **Tickets**: Tabel ini menyimpan informasi tiket yang tersedia untuk berbagai film. Dengan relasi one to many terhadap tabel **Transactions,** dan relasi many to one terhadap tabel **Movies.**
+- **Tickets**: Tabel ini menyimpan informasi tiket yang tersedia untuk berbagai film. Dengan relasi one to many terhadap tabel **Transactions,** dan relasi one to one terhadap tabel **Movies.**
 - **Transactions**: Tabel ini menghubungkan user dengan tiket yang mereka pesan. Setiap transaksi mencatat user mana yang membeli tiket apa, berapa jumlah tiket yang dibeli, dan total harga yang dibayar. Dengan relasi many to one terhadap tabel **Users** dan relasi many to one terhadap tabel **Tickets.**
-- **Movies:** Tabel ini menyimpan informasi film yang akan ditayangkan. Dengan relasi one to many dengan tabel **Tickets.**
+- **Movies:** Tabel ini menyimpan informasi film yang akan ditayangkan. Dengan relasi one to one dengan tabel **Tickets.**
