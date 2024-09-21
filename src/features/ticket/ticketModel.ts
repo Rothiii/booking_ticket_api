@@ -6,6 +6,7 @@ export type CreateTicketRequest = {
 };
 
 export type UpdateTicketRequest = {
+  id_ticket: number
   id_movie: number
   price: number
   show_date: Date

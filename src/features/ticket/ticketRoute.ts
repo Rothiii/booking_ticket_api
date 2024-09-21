@@ -19,12 +19,12 @@ ticketRoute.get("/", [
 //   TicketController.getTicketByMovieName,
 // ]);
 
-ticketRoute.patch("/:id", [
+ticketRoute.patch("/:id_ticket", [
   JwtMiddleware.verifyToken,
   TicketController.updateTicket,
 ]);
 
-ticketRoute.delete("/:id", [
+ticketRoute.delete("/:id_ticket", [
   JwtMiddleware.verifyToken,
   TicketController.deleteTicket,
 ]);

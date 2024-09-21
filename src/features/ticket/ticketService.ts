@@ -26,15 +26,15 @@ export class TicketService {
   //   return results;
   // }
 
-  static async updateTicket(id: string, data: UpdateTicketRequest) {
+  static async updateTicket(data: UpdateTicketRequest) {
     const query = "CALL UpdateTicket(?, ?, ?, ?, ?)";
-    const results = await executeQuery(query, [id, data]);
+    const results = await executeQuery(query, [data]);
     return results;
   }
 
-  static async deleteTicket(id: string) {
+  static async deleteTicket(id_ticket: string) {
     const query = "CALL DeleteTicket(?)";
-    const results = await executeQuery(query, [id]);
+    const results = await executeQuery(query, [id_ticket]);
     return results;
   }
 }
