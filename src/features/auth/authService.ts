@@ -14,7 +14,7 @@ export class AuthService {
     const phone_number = data.phone_number;
     const password = data.password;
 
-    const query = "CALL GetUser(?)";
+    const query = "CALL GetUsers(?)";
     const dataInput = [phone_number];
     const results = await executeQuery(query, dataInput);
     console.log(results);
