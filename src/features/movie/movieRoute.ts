@@ -4,15 +4,9 @@ import { MovieController } from "./movieController";
 
 const movieRoute: Router = Router();
 
-movieRoute.post("/", [
-  JwtMiddleware.verifyToken,
-  MovieController.createMovie,
-]);
+movieRoute.post("/", [JwtMiddleware.verifyToken, MovieController.createMovie]);
 
-movieRoute.get("/", [
-  JwtMiddleware.verifyToken,
-  MovieController.getMovie,
-]);
+movieRoute.get("/", [JwtMiddleware.verifyToken, MovieController.getMovie]);
 
 // movieRoute.get("/:name", [
 //   JwtMiddleware.verifyToken,

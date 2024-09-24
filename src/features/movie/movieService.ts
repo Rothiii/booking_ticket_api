@@ -7,6 +7,7 @@ export class MovieService {
     const query = "CALL CreateMovie(?, ?, ?)";
     const dataInput = [name, genre, language];
     const results = await executeQuery(query, dataInput);
+    return data;
   }
 
   static async getMovie() {
@@ -22,8 +23,7 @@ export class MovieService {
   // }
 
   static async updateMovie(data: UpdateMovieRequest) {
-    const { id_movie, name, genre, language } =
-      data;
+    const { id_movie, name, genre, language } = data;
     const query = "CALL UpdateMovie(?, ?, ?, ?)";
     const results = await executeQuery(query, [
       id_movie,
@@ -38,6 +38,6 @@ export class MovieService {
   static async deleteMovie(id_movie: string) {
     const query = "CALL DeleteMovie(?)";
     const results = await executeQuery(query, [id_movie]);
-    return results;
+    return id_movie;
   }
 }
