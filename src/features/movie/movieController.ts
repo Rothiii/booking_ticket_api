@@ -12,7 +12,7 @@ export class MovieController {
       });
       return res.status(201).json({
         success: true,
-        data: { ...movie },
+        data: movie,
         message: "Movie created successfully",
       });
     } catch (error) {

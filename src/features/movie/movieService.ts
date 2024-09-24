@@ -7,13 +7,12 @@ export class MovieService {
     const query = "CALL CreateMovie(?, ?, ?)";
     const dataInput = [name, genre, language];
     const results = await executeQuery(query, dataInput);
-    return results;
   }
 
   static async getMovie() {
     const query = "CALL GetMovies()";
     const results = await executeQuery(query);
-    return results;
+    return results[0];
   }
 
   // static async getMovieByName(Name: string) {
@@ -25,14 +24,15 @@ export class MovieService {
   static async updateMovie(data: UpdateMovieRequest) {
     const { id_movie, name, genre, language } =
       data;
-    const query = "CALL UpdateMovie(?, ?, ?, ?, ?, ?, ?, ?)";
+    const query = "CALL UpdateMovie(?, ?, ?, ?)";
     const results = await executeQuery(query, [
       id_movie,
       name,
       genre,
       language,
     ]);
-    return results;
+
+    return data;
   }
 
   static async deleteMovie(id_movie: string) {
