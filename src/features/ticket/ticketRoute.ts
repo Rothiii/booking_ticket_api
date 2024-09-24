@@ -9,10 +9,7 @@ ticketRoute.post("/", [
   TicketController.createTicket,
 ]);
 
-ticketRoute.get("/", [
-  JwtMiddleware.verifyToken,
-  TicketController.getTicket,
-]);
+ticketRoute.get("/", [JwtMiddleware.verifyToken, TicketController.getTicket]);
 
 // ticketRoute.get("/:movie_name", [
 //   JwtMiddleware.verifyToken,

@@ -11,13 +11,13 @@ export class TicketService {
       show_date,
       show_time,
     ]);
-    return results;
+    return data;
   }
 
   static async getTicket() {
     const query = "CALL GetTickets()";
     const results = await executeQuery(query);
-    return results;
+    return results[0];
   }
 
   // static async getTicketByMovieName(movie_name: string) {
@@ -27,9 +27,16 @@ export class TicketService {
   // }
 
   static async updateTicket(data: UpdateTicketRequest) {
+    const { id_ticket, id_movie, price, show_date, show_time } = data;
     const query = "CALL UpdateTicket(?, ?, ?, ?, ?)";
-    const results = await executeQuery(query, [data]);
-    return results;
+    const results = await executeQuery(query, [
+      id_ticket,
+      id_movie,
+      price,
+      show_date,
+      show_time,
+    ]);
+    return data;
   }
 
   static async deleteTicket(id_ticket: string) {
