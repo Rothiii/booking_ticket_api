@@ -14,7 +14,7 @@ export class AuthService {
     const phone_number = data.phone_number;
     const password = data.password;
 
-    const query = "CALL GetUser(?)";
+    const query = "CALL GetUsers(?)";
     const dataInput = [phone_number];
     const results = await executeQuery(query, dataInput);
     console.log(results);
@@ -48,7 +48,7 @@ export class AuthService {
       },
       process.env.JWT_SECRET!,
       {
-        expiresIn: "24h",
+        expiresIn: "30d",
       }
     );
 
@@ -64,7 +64,7 @@ export class AuthService {
     const phone_number = data.phone_number;
     const balance = 0;
     const role = "user";
-    const isUserExist = await executeQuery("CALL GetUser(?)", [phone_number]);
+    const isUserExist = await executeQuery("CALL GetUsers(?)", [phone_number]);
     if (isUserExist[0][0]) {
       throw new ErrorResponse(
         "Phone Number Already Exist",
@@ -86,7 +86,7 @@ export class AuthService {
     const phone_number = data.phone_number;
     const balance = 0;
     const role = "admin";
-    const isUserExist = await executeQuery("CALL GetUser(?)", [phone_number]);
+    const isUserExist = await executeQuery("CALL GetUsers(?)", [phone_number]);
     if (isUserExist[0][0]) {
       throw new ErrorResponse(
         "Phone Number Already Exist",
@@ -105,7 +105,7 @@ export class AuthService {
     data: CurrentLoggedInRequest
   ): Promise<CurrentLoggedInResponse> {
     const phone_number = data;
-    const query = "CALL GetUser(?)";
+    const query = "CALL GetUsers(?)";
     const dataInput = [phone_number];
     const results = await executeQuery(query, dataInput);
 

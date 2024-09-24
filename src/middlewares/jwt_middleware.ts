@@ -17,4 +17,16 @@ export class JwtMiddleware {
       next(error);
     }
   }
+
+  static async adminOnly(req: Request, res: Response, next: NextFunction) {
+    try {
+      const user = res.locals.user;
+      if (user.role !== "admin") {
+        throw new ErrorResponse("Forbidden", 403, ["role"], "FORBIDDEN");
+      }
+      next();
+    } catch (error) {
+      next(error);
+    }
+  }
 }
