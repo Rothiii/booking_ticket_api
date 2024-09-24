@@ -43,7 +43,11 @@ export class AuthController {
     }
   }
 
-  static async currentLoggedIn(req: Request, res: Response, next: NextFunction) {
+  static async currentLoggedIn(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
     try {
       const user = res.locals.user;
       const data = await AuthService.currentLoggedIn(user.phone_number);

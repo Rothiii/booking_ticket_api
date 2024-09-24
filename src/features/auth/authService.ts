@@ -48,7 +48,7 @@ export class AuthService {
       },
       process.env.JWT_SECRET!,
       {
-        expiresIn: "24h",
+        expiresIn: "30d",
       }
     );
 
