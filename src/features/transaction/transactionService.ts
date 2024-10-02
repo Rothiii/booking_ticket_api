@@ -10,7 +10,6 @@ export class TransactionService {
     const query = "CALL CreateTransaction(?, ?, ?, ?);";
     const dataInput = [id_ticket, id_user, quantity, code_discount];
     await executeQuery(query, dataInput);
-    console.log(data);
     return data;
   }
 

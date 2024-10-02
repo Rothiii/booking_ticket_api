@@ -17,7 +17,6 @@ export class AuthService {
     const query = "CALL GetUsers(?)";
     const dataInput = [phone_number];
     const results = await executeQuery(query, dataInput);
-    console.log(results);
     if (results.length === 0) {
       throw new ErrorResponse(
         "User not found",
@@ -28,7 +27,6 @@ export class AuthService {
     }
 
     const user = results[0][0];
-    console.log(user);
     const isPasswordMatch = await comparePassword(password, user.password);
 
     if (!isPasswordMatch) {
