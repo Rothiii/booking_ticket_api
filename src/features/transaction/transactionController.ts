@@ -34,4 +34,17 @@ export class TransactionController {
       next(error);
     }
   }
+
+  static async topUpBalance(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { id_user, amount } = req.body;;
+      await TransactionService.topUpBalance({ id_user, amount });
+      return res.status(200).json({
+        success: true,
+        message: "Balance topped up successfully",
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
 }

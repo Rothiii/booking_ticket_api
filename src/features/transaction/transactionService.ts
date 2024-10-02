@@ -1,5 +1,5 @@
 import { executeQuery } from "../../database/connection";
-import { CreateTransactionRequest } from "./transactionModel";
+import { CreateTransactionRequest, TopUpBalanceRequest } from "./transactionModel";
 import { ErrorResponse } from "../../models";
 
 export class TransactionService {
@@ -15,8 +15,16 @@ export class TransactionService {
   }
 
   static async getTotalRevenueToday() {
-    const query = "SELECT GetRevenueToday() AS revenueToday;";
+    const query = "CALL GetRevenueToday()";
     const result = await executeQuery(query);
-    return result;
+    return result[0][0];
+  }
+
+  static async topUpBalance(data: TopUpBalanceRequest) {
+    const { id_user, amount } = data;
+    const query = "CALL TopUpBalance(?, ?)";
+    const dataInput = [id_user, amount];
+    const result = await executeQuery(query, dataInput);
+    return result[0]
   }
 }

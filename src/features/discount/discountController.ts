@@ -24,10 +24,10 @@ export class DiscountController {
 
   static async getDiscount(req: Request, res: Response, next: NextFunction) {
     try {
-      const value_discount = await DiscountService.getDiscounts();
+      const discount = await DiscountService.getDiscounts();
       return res.status(200).json({
         success: true,
-        data: { value_discount },
+        data: discount,
         message: "Discount retrieved successfully",
       });
     } catch (error) {

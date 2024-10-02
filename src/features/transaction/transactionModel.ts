@@ -4,3 +4,8 @@ export type CreateTransactionRequest = {
   id_user: number
   quantity: number
 };
+
+export type TopUpBalanceRequest = {
+  id_user: number;
+  amount: number;
+};

@@ -28,15 +28,8 @@ export class DiscountService {
   }
 
   static async getDiscounts() {
-    const query = "SELECT * FROM Discounts;";
+    const query = "CALL DiscountAvalaible;";
     const result = await executeQuery(query);
     return result[0];
-  }
-
-  static async getDiscountByCode(code: string) {
-    const query = "SELECT * FROM Discounts WHERE code = ?;";
-    const dataInput = [code];
-    const result = await executeQuery(query, dataInput);
-    return result[0][0];
   }
 }

@@ -5,6 +5,10 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import { ErrorMiddleware } from "./middlewares";
 import { authRoute } from "./features/auth";
+import { ticketRoute } from "./features/ticket";
+import { movieRoute } from "./features/movie";
+import { transactionRoute } from "./features/transaction";
+import { discountRoute } from "./features/discount";
 
 dotenv.config();
 const app: Express = express();
@@ -20,6 +24,11 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/ticket", ticketRoute);
+app.use("/api/v1/movie", movieRoute);
+app.use("/api/v1/transaction", transactionRoute);
+app.use("/api/v1/discount", discountRoute);
+
 
 app.use(ErrorMiddleware.notFound);
 app.use(ErrorMiddleware.returnError);

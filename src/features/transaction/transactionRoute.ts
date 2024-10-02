@@ -14,4 +14,9 @@ transactionRoute.get("/revenueToday", [
   TransactionController.getTotalRevenueToday,
 ]);
 
+transactionRoute.post("/topUpBalance", [
+  JwtMiddleware.verifyToken,
+  TransactionController.topUpBalance,
+]);
+
 export default transactionRoute;
