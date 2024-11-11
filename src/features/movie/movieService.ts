@@ -10,17 +10,17 @@ export class MovieService {
     return data;
   }
 
-  static async getMovie() {
+  static async getMovies() {
     const query = "CALL GetMovies()";
     const results = await executeQuery(query);
     return results[0];
   }
 
-  // static async getMovieByName(Name: string) {
-  //   const query = "CALL GetMovieByName(?)";
-  //   const results = await executeQuery(query, [id]);
-  //   return results;
-  // }
+  static async getMoviesUser() {
+    const query = "CALL GetMoviesUser()";
+    const results = await executeQuery(query);
+    return results[0];
+  }
 
   static async updateMovie(data: UpdateMovieRequest) {
     const { id_movie, name, genre, language } = data;

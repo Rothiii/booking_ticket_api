@@ -22,7 +22,13 @@ export class MovieController {
 
   static async getMovie(req: Request, res: Response, next: NextFunction) {
     try {
-      const movie = await MovieService.getMovie();
+      let movie;
+      const user = res.locals.user
+      if(user.role === "admin") {
+        movie = await MovieService.getMovies();
+      } else if (user.role === "user") {
+        movie = await MovieService.getMoviesUser();
+      }
       return res.status(200).json({
         success: true,
         data: movie,
@@ -32,20 +38,6 @@ export class MovieController {
       next(error);
     }
   }
-
-  // static async getMovieByName(req: Request, res: Response, next: NextFunction) {
-  //   try {
-  //     const { name } = req.params;
-  //     const movie = await MovieService.getMovieByName(name);
-  //     return res.status(200).json({
-  //       success: true,
-  //       data: movie,
-  //       message: 'Movie fetched successfully',
-  //     });
-  //   } catch (error) {
-  //     next(error);
-  //   }
-  // }
 
   static async updateMovie(req: Request, res: Response, next: NextFunction) {
     try {

@@ -8,11 +8,6 @@ movieRoute.post("/", [JwtMiddleware.verifyToken, MovieController.createMovie]);
 
 movieRoute.get("/", [JwtMiddleware.verifyToken, MovieController.getMovie]);
 
-// movieRoute.get("/:name", [
-//   JwtMiddleware.verifyToken,
-//   MovieController.getMovieByName,
-// ]);
-
 movieRoute.patch("/:id_movie", [
   JwtMiddleware.verifyToken,
   MovieController.updateMovie,
