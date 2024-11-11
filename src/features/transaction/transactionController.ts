@@ -22,6 +22,20 @@ export class TransactionController {
     }
   }
 
+  static async getHistoryTransaction(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { id_user } = res.locals.user;
+      const historyTransaction = await TransactionService.getHistoryTransaction(id_user);
+      return res.status(200).json({
+        success: true,
+        data: historyTransaction,
+        message: "History transaction retrieved successfully",
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
   static async getTotalRevenueToday(req: Request, res: Response, next: NextFunction) {
     try {
       const totalRevenue = await TransactionService.getTotalRevenueToday();

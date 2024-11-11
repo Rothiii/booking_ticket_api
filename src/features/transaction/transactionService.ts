@@ -24,6 +24,13 @@ export class TransactionService {
     };
   }
 
+  static async getHistoryTransaction(id_user: string) {
+    const query = "CALL GetHistoryTransaction(?)";
+    const dataInput = [id_user];
+    const result = await executeQuery(query, dataInput);
+    return result[0];
+  }
+
   static async getTotalRevenueToday() {
     const query = "CALL GetRevenueToday()";
     const result = await executeQuery(query);

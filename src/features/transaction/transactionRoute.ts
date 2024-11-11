@@ -9,6 +9,11 @@ transactionRoute.post("/", [
   TransactionController.createTransaction,
 ]);
 
+transactionRoute.get("/historyTransaction", [
+  JwtMiddleware.verifyToken,
+  TransactionController.getHistoryTransaction,
+]);
+
 transactionRoute.get("/revenueToday", [
   JwtMiddleware.verifyToken,
   TransactionController.getTotalRevenueToday,
