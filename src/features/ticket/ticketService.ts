@@ -14,17 +14,17 @@ export class TicketService {
     return data;
   }
 
-  static async getTicket() {
+  static async getTickets() {
     const query = "CALL GetTickets()";
     const results = await executeQuery(query);
     return results[0];
   }
 
-  // static async getTicketByMovieName(movie_name: string) {
-  //   const query = "CALL GetTicketByMovieName(?)";
-  //   const results = await executeQuery(query, [movie_name]);
-  //   return results;
-  // }
+  static async getTicketsAvailable() {
+    const query = "CALL GetTicketsAvailable()";
+    const results = await executeQuery(query);
+    return results[0];
+  }
 
   static async updateTicket(data: UpdateTicketRequest) {
     const { id_ticket, id_movie, price, show_date, show_time } = data;

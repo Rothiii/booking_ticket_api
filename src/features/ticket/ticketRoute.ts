@@ -11,10 +11,7 @@ ticketRoute.post("/", [
 
 ticketRoute.get("/", [JwtMiddleware.verifyToken, TicketController.getTicket]);
 
-// ticketRoute.get("/:movie_name", [
-//   JwtMiddleware.verifyToken,
-//   TicketController.getTicketByMovieName,
-// ]);
+ticketRoute.get("/available", [JwtMiddleware.verifyToken, TicketController.getTicketAvailable]);
 
 ticketRoute.patch("/:id_ticket", [
   JwtMiddleware.verifyToken,

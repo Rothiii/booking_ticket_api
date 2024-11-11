@@ -23,7 +23,7 @@ export class TicketController {
 
   static async getTicket(req: Request, res: Response, next: NextFunction) {
     try {
-      const ticket = await TicketService.getTicket();
+      const ticket = await TicketService.getTickets();
       return res.status(200).json({
         success: true,
         data: ticket,
@@ -34,19 +34,18 @@ export class TicketController {
     }
   }
 
-  // static async getTicketByMovieName(req: Request, res: Response, next: NextFunction) {
-  //   try {
-  //     const { movie_name } = req.params;
-  //     const ticket = await TicketService.getTicketByMovieName(movie_name);
-  //     return res.status(200).json({
-  //       success: true,
-  //       data: ticket,
-  //       message: "Ticket fetched successfully",
-  //     });
-  //   } catch (error) {
-  //     next(error);
-  //   }
-  // }
+  static async getTicketAvailable(req: Request, res: Response, next: NextFunction) {
+    try {
+      const ticket = await TicketService.getTicketsAvailable();
+      return res.status(200).json({
+        success: true,
+        data: ticket,
+        message: "Ticket fetched successfully",
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
 
   static async updateTicket(req: Request, res: Response, next: NextFunction) {
     try {
