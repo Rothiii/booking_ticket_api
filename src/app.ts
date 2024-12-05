@@ -9,6 +9,7 @@ import { ticketRoute } from "./features/ticket";
 import { movieRoute } from "./features/movie";
 import { transactionRoute } from "./features/transaction";
 import { discountRoute } from "./features/discount";
+import { ratingRoute } from "./features/rating";
 
 dotenv.config();
 const app: Express = express();
@@ -28,6 +29,7 @@ app.use("/api/v1/ticket", ticketRoute);
 app.use("/api/v1/movie", movieRoute);
 app.use("/api/v1/transaction", transactionRoute);
 app.use("/api/v1/discount", discountRoute);
+app.use("/api/v1/rating", ratingRoute);
 
 
 app.use(ErrorMiddleware.notFound);

@@ -4,18 +4,32 @@ import { CreateDiscountRequest, UpdateDiscountRequest } from "./discountModel";
 
 export class DiscountService {
   static async createDiscount(data: CreateDiscountRequest) {
-    const { code_discount, value_discount, description, start_date, end_date} = data;
+    const { code_discount, value_discount, description, start_date, end_date } =
+      data;
     const query = "CALL CreateDiscount(?, ?, ?, ?, ?);";
-    const dataInput = [code_discount, description, value_discount, start_date, end_date];
+    const dataInput = [
+      code_discount,
+      description,
+      value_discount,
+      start_date,
+      end_date,
+    ];
     await executeQuery(query, dataInput);
     return data;
   }
 
   static async updateDiscount(data: UpdateDiscountRequest) {
-    const { code_discount, value_discount, description, start_date, end_date} = data;
+    const { code_discount, value_discount, description, start_date, end_date } =
+      data;
 
     const query = "CALL UpdateDiscount(?, ?, ?, ?, ?);";
-    const dataInput = [code_discount, value_discount, description, start_date, end_date];
+    const dataInput = [
+      code_discount,
+      value_discount,
+      description,
+      start_date,
+      end_date,
+    ];
     await executeQuery(query, dataInput);
     return data;
   }
@@ -28,7 +42,7 @@ export class DiscountService {
   }
 
   static async getDiscounts() {
-    const query = "CALL DiscountAvalaible;";
+    const query = "CALL GetDiscounts;";
     const result = await executeQuery(query);
     return result[0];
   }
